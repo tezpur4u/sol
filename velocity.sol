@@ -1,4 +1,27 @@
+/**
+ *Submitted for verification at BscScan.com on 2023-03-28
+*/
+
+// ░██████╗░█████╗░███████╗██╗░░░██╗  ██████╗░██╗░░░██╗
+// ██╔════╝██╔══██╗██╔════╝██║░░░██║  ██╔══██╗╚██╗░██╔╝
+// ╚█████╗░███████║█████╗░░██║░░░██║  ██████╦╝░╚████╔╝░
+// ░╚═══██╗██╔══██║██╔══╝░░██║░░░██║  ██╔══██╗░░╚██╔╝░░
+// ██████╔╝██║░░██║██║░░░░░╚██████╔╝  ██████╦╝░░░██║░░░
+// ╚═════╝░╚═╝░░╚═╝╚═╝░░░░░░╚═════╝░  ╚═════╝░░░░╚═╝░░░
+
+// ░█████╗░░█████╗░██╗███╗░░██╗░██████╗██╗░░░██╗██╗░░░░░████████╗░░░███╗░░██╗███████╗████████╗
+// ██╔══██╗██╔══██╗██║████╗░██║██╔════╝██║░░░██║██║░░░░░╚══██╔══╝░░░████╗░██║██╔════╝╚══██╔══╝
+// ██║░░╚═╝██║░░██║██║██╔██╗██║╚█████╗░██║░░░██║██║░░░░░░░░██║░░░░░░██╔██╗██║█████╗░░░░░██║░░░
+// ██║░░██╗██║░░██║██║██║╚████║░╚═══██╗██║░░░██║██║░░░░░░░░██║░░░░░░██║╚████║██╔══╝░░░░░██║░░░
+// ╚█████╔╝╚█████╔╝██║██║░╚███║██████╔╝╚██████╔╝███████╗░░░██║░░░██╗██║░╚███║███████╗░░░██║░░░
+// ░╚════╝░░╚════╝░╚═╝╚═╝░░╚══╝╚═════╝░░╚═════╝░╚══════╝░░░╚═╝░░░╚═╝╚═╝░░╚══╝╚══════╝░░░╚═╝░░░
+
+// SAFU By Coinsult
+
+// SPDX-License-Identifier: MIT
+
 pragma solidity 0.8.17;
+
 abstract contract Context {
     function _msgSender() internal view virtual returns (address) {
         return msg.sender;
@@ -924,9 +947,9 @@ contract VCY is ERC20, Ownable {
         address indexed processor
     );
 
-    constructor() payable ERC20("LeLe", "LEL") {
+    constructor() payable ERC20("Velocity", "VCY") {
 
-        rewardToken = 0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c; // BUSD
+        rewardToken = 0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56; // BUSD
 
         treasuryFeeOnBuy    = 4;
         rewardsFeeOnBuy     = 2;
@@ -938,11 +961,11 @@ contract VCY is ERC20, Ownable {
 
         totalSellFee        = treasuryFeeOnSell + rewardsFeeOnSell;
 
-        treasuryWallet = 0x740BCb33698b8f18ee034cB7460033009422F527;
+        treasuryWallet = 0x145ec4BC946A638e73B0414e1e375b5B154cC15b;
 
         dividendTracker = new DividendTracker(5_000_000, rewardToken);
 
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0xD99D1c33F9fC3444f8101754aBC46c52416550D1); // PCS Testnet
+        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E); // PCS Mainnet
         address _uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
             .createPair(address(this), _uniswapV2Router.WETH());
 
